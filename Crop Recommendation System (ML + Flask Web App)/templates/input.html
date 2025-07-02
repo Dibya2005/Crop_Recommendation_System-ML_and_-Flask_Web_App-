@@ -8,18 +8,32 @@
 <body>
     <h1>🌱 Crop Recommendation System</h1>
     <form method="POST" action="/predict">
-        <input name="N" placeholder="Nitrogen (N)" required><br>
-        <input name="P" placeholder="Phosphorus (P)" required><br>
-        <input name="K" placeholder="Potassium (K)" required><br>
-        <input name="temperature" step="0.1" placeholder="Temperature (°C)" required><br>
-        <input name="humidity" step="0.1" placeholder="Humidity (%)" required><br>
-        <input name="ph" step="0.1" placeholder="pH" required><br>
-        <input name="rainfall" step="0.1" placeholder="Rainfall (mm)" required><br>
+        <label for="">Nitrogen</label>
+        <input name="N" placeholder="Nitrogen (N)" required value="{{ values.N if values else '' }}"><br>
+
+        <label for="">Phosphorus</label>
+        <input name="P" placeholder="Phosphorus (P)" required value="{{ values.P if values else '' }}"><br>
+
+        <label for="">Potassium</label>
+        <input name="K" placeholder="Potassium (K)" required value="{{ values.K if values else '' }}"><br>
+
+        <label for="">Temperature</label>
+        <input name="temperature" step="0.1" placeholder="Temperature (°C)" required value="{{ values.temperature if values else '' }}"><br>
+
+        <label for="">Humidity</label>
+        <input name="humidity" step="0.1" placeholder="Humidity (%)" required value="{{ values.humidity if values else '' }}"><br>
+
+        <label for="">pH</label>
+        <input name="ph" step="0.1" placeholder="pH" required value="{{ values.ph if values else '' }}"><br>
+
+        <label for="">Rainfall</label>
+        <input name="rainfall" step="0.1" placeholder="Rainfall (mm)" required value="{{ values.rainfall if values else '' }}"><br>
+
         <button type="submit">Predict</button>
     </form>
 
     {% if prediction %}
-        <h2>🌾 Recommended Crop: {{ prediction }}</h2>
+        <h2>🌾 {{ prediction }}</h2>
     {% endif %}
 </body>
 </html>
